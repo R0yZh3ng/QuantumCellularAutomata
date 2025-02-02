@@ -8,3 +8,30 @@ A *bulleted* list:
 - item 3
 
 An example of text with **bold** and *italic* fonts.  
+
+## What will the application do?
+
+The application would be a **Quantum Cellular Automatat Simulator** designed to simulate/visualize quanutm interactions in a structured grid.
+This simulator models quantum superpostion, entaglement, and measurement collapse over discrete timesteps ot help visualize quantum behaviour in 
+cellular automaton like systems, qubit evolution, wave interference, and entanglement lines, explores quantum computing principles such as gate operations.
+
+## Users
+
+A *bulleted* list:
+- Researchers/Students
+- Developers
+- Educators
+
+## Why this is of interest to me
+
+Given recent events involving the drastic uprise and fall of quantum computing related concepts in the stock market (that I am unfortuantely losing money on), I have developed an interest for the actual technology involved. As we inevitably will transitiion to using quantum computers in the future, I am eager to understand how this technology works, as both a physics enthusiast and a possible candidate in the field.
+
+
+
+
+
+
+
+
+
+
