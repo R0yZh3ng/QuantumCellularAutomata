@@ -54,6 +54,10 @@ public class Qubit {
         return this.color;
     }
 
+    public void setColor(Color color){
+        this.color = color;
+    }
+
     //MODIFIES: this 
     //EFFECTS: this method collapsese the qubit into either |0> or |1> by comparing
     //a random number with the square of the probability amplitude of |0>, if the random 

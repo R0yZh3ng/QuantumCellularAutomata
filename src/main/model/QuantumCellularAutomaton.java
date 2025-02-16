@@ -17,39 +17,47 @@ public class QuantumCellularAutomaton {
                 grid[i][j] = new Qubit(); //all qubits start with the |0> state
             }
         }
-
-        Timer timer = new Timer(200, e -> {
-            updateGrid();
-            paintGrid();
-        });
-        
-        timer.start();
-    }
-
-    public Qubit[][] getGrid() {
-        return grid;
-    }
-
-    public int getSize() {
-        return size;
     }
 
     //MODIFIES: this, Qubit
     //EFFECTS: updates all the Qubits in the grid (apply entaglement on to neighbours)
     public void updateGrid() {
-        Qubit[][] updatedGrid = new Qubit[size][size];
+        for (int i = 0; i < size; i++) { 
+            for (int j = 0; j < size; j++) { 
+                Qubit current = grid[i][j];
+                
+                if (i > 0) {
+                    current.entangle(grid[i-1][j]);
+                }
+                if (j > 0) {
+                    current.entangle(grid[i][j - 1]);
+                }
+                if (i < size -1) {
+                    current.entangle(grid[i + 1][j]);
+                }
+                if (j < size -1) {
+                    current.entangle(grid[i][j + 1]);
+                }
+            }
+        }
     }
 
     //MODIFIES this, Qubit
     //EFFECTS: applies colors to all the Qubits in the grid (more red or more blue of more |0> or |1> respectively)
     public void paintGrid() {
-        Qubit[][] updatedGrid = new Qubit[size][size];
-    }
+        for (int i = 0; i < size; i++) { 
+            for (int j = 0; j < size; j++) { 
+                Qubit qubit = grid[i][j];
+                
+                double prob0 = qubit.getAlpha().magnitudeSquared();
+                double prob1 = qubit.getBeta().magnitudeSquared();
 
-    //Effects: Runs the simualtion forever in a loop until specified to stop when running = false
-    public void runSimulation(Boolean running, Gate gate) {
-        while (running) {
-            updateGrid(); //stub
+                int red = (int) (prob0 * 255);
+                int blue = (int) (prob1 * 255);
+    
+                qubit.setColor(new Color(red, 0, blue)); 
+            }
         }
     }
+    
 }

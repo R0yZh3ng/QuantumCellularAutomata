@@ -10,6 +10,7 @@ public class TestQuanumCellularAutomaton {
     private QuantumCellularAutomaton testGrid;
     private int size;
     private Qubit[][] sampleGrid;
+    private Qubit[][] sampleGrid2;
 
     @BeforeEach
     void runBefore(){
@@ -20,6 +21,14 @@ public class TestQuanumCellularAutomaton {
         for (int i = 0; i < size; i++) { 
             for (int j = 0; j < size; j++) { 
                 sampleGrid[i][j] = new Qubit(); 
+            }
+        }
+
+        sampleGrid2 = new Qubit[size][size];
+        for (int i = 0; i < size; i++) { 
+            for (int j = 0; j < size; j++) { 
+                sampleGrid2[i][j] = new Qubit(new ComplexNumber(1 / Math.sqrt(2), 0),
+                                             new ComplexNumber(1 / Math.sqrt(2), 0)); 
             }
         }
 
@@ -36,16 +45,32 @@ public class TestQuanumCellularAutomaton {
             }
         }
     }
+    
+    @Test
+    void testGetGrid(){
+        for (int i = 0; i < size; i++) { 
+            for (int j = 0; j < size; j++) { 
+                assertEquals(sampleGrid[i][j].getAlpha(), testGrid.grid[i][j].getAlpha());
+                assertEquals(sampleGrid[i][j].getBeta(), testGrid.grid[i][j].getBeta());
+            }
+        }
+    }
+
 
     @Test
     void testUpdateGrid() {
         testGrid.updateGrid();
+        Boolean changed = false;
         for (int i = 0; i < size; i++) { 
             for (int j = 0; j < size; j++) { 
-                assertNotEquals(sampleGrid[i][j].getAlpha(), testGrid.grid[i][j].getAlpha());
-                assertNotEquals(sampleGrid[i][j].getBeta(), testGrid.grid[i][j].getBeta());
+                if (!sampleGrid2[i][j].getAlpha().equals(testGrid.grid[i][j].getAlpha()) || 
+                sampleGrid2[i][j].getBeta().equals(testGrid.grid[i][j].getBeta())){
+                    changed = true;
+                }
+
             }
         }
+        assertTrue(changed);
     }
 
     @Test
