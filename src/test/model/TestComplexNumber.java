@@ -49,28 +49,28 @@ public class TestComplexNumber {
     }
     
     @Test
-    void testMagnitudeSquared(){
+    void testMagnitudeSquared() {
         assertEquals(cnum1.magnitudeSquared(), 1);
         assertEquals(cnum2.magnitudeSquared(), 0.5);
         assertEquals(cnum3.magnitudeSquared(), 1);
     }
 
     @Test
-    void testMultiply(){
+    void testMultiply() {
         assertEquals(cnum1.multiply(cnum2), new ComplexNumber(-0.50, 0.50));
         assertEquals(cnum2.multiply(cnum2), new ComplexNumber(0, 0.5));
         assertEquals(cnum3.multiply(cnum2),  new ComplexNumber(0.50, 0.50));
     }
 
     @Test
-    void testAdd(){
+    void testAdd() {
         assertEquals(cnum1.add(cnum2), new ComplexNumber(0.50, 1.50));
         assertEquals(cnum2.add(cnum2), new ComplexNumber(1.0, 1.0));
         assertEquals(cnum3.add(cnum2), new ComplexNumber(1.50, 0.50));
     }
 
     @Test
-    void testEqualsOverride(){
+    void testEqualsOverride() {
         assertTrue(cnum1.equals(cnum1));
         assertTrue(cnum1.equals(cnum4));
         assertFalse(cnum1.equals(cnum2));

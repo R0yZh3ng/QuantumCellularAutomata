@@ -21,9 +21,7 @@ public class TestGate {
         omega = new ComplexNumber(0, -1);
         theta = new ComplexNumber(1, 0);
 
-        testMatrix = new ComplexNumber[][]{
-                    {alpha, beta}, 
-                    {omega, theta}};
+        testMatrix = new ComplexNumber[][]{{alpha, beta}, {omega, theta}};
 
         testGate = new Gate(testMatrix);
     }
@@ -41,6 +39,7 @@ public class TestGate {
         assertEquals(testMatrix[1][0], sample[1][0]);
         assertEquals(testMatrix[1][1], sample[1][1]);
     }
+    
     @Test
     public void testMultiplyMatrixRowWithHadamardGate() {
         // Prepare a Hadamard gate

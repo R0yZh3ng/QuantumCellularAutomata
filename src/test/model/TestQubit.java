@@ -20,11 +20,11 @@ public class TestQubit {
     private ComplexNumber beta1;
     private ComplexNumber beta2;
     private ComplexNumber beta3;
-    private Random RND;
+    private Random randomDouble;
 
     @BeforeEach
-    void runBefore(){
-        RND = new Random();
+    void runBefore() {
+        randomDouble = new Random();
 
         alpha = new ComplexNumber(1, 0);
         beta = new ComplexNumber(0, 0);
@@ -35,8 +35,8 @@ public class TestQubit {
         alpha2 = new ComplexNumber(0, 0);
         beta2 = new ComplexNumber(1, 0);
         
-        alpha3 = new ComplexNumber(1/Math.sqrt(2), 0);
-        beta3 = new ComplexNumber(0, 1/Math.sqrt(2));    
+        alpha3 = new ComplexNumber(1 / Math.sqrt(2), 0);
+        beta3 = new ComplexNumber(0, 1 / Math.sqrt(2));    
 
         testQubit0 = new Qubit();
         testQubit = new Qubit(alpha, beta);
@@ -46,12 +46,13 @@ public class TestQubit {
     }
 
     @Test 
-    void testConstructor(){
+    void testConstructor() {
         assertEquals(alpha1, testQubit1.getAlpha());
         assertEquals(beta1, testQubit1.getBeta());
         assertEquals(alpha, testQubit0.getAlpha());
         assertEquals(beta, testQubit0.getBeta());
     }
+
     @Test
     void testApplyHadamardGate() {
         testQubit.applyGate(Gate.HADAMARD);
@@ -77,25 +78,25 @@ public class TestQubit {
     }
 
     @Test
-    void testMeasure(){
-        testQubit.measure(RND);
+    void testMeasure() {
+        testQubit.measure(randomDouble);
 
         assertEquals(testQubit.getAlpha(), new ComplexNumber(1, 0));
         assertEquals(testQubit.getBeta(), new ComplexNumber(0, 0));
 
-        Random RND2 = new Random(10);
-        testQubit1.measure(RND2);
+        Random randomDouble2 = new Random(10);
+        testQubit1.measure(randomDouble2);
 
         assertEquals(testQubit1.getAlpha(), new ComplexNumber(0, 0));
         assertEquals(testQubit1.getBeta(), new ComplexNumber(1, 0));
 
-        Random RND3 = new Random(80);
-        testQubit2.measure(RND3);
+        Random randomDouble3 = new Random(80);
+        testQubit2.measure(randomDouble3);
         assertEquals(testQubit2.getAlpha(), new ComplexNumber(0, 0));
         assertEquals(testQubit2.getBeta(), new ComplexNumber(1, 0));
 
-        Random RND4 = new Random(2156);
-        testQubit3.measure(RND4);
+        Random randomDouble4 = new Random(2156);
+        testQubit3.measure(randomDouble4);
         assertEquals(testQubit3.getAlpha(), new ComplexNumber(0, 0));
         assertEquals(testQubit3.getBeta(), new ComplexNumber(1, 0));
 

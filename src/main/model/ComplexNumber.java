@@ -14,14 +14,14 @@ public class ComplexNumber {
     }
 
     //EFFECT: calculates alpha^2 + beta^2 = |z|^2 in probability calculations
-    public double magnitudeSquared(){
+    public double magnitudeSquared() {
         return (real * real) + (imaginary * imaginary);
 
     }
 
     //MODIFIES: this
     //EFFECT: Multiplies the current complex numbers together with another and return the result as a new Complex number
-    public ComplexNumber multiply(ComplexNumber otherNumber){
+    public ComplexNumber multiply(ComplexNumber otherNumber) {
         double resultReal;
         double resultImaginary;
 
@@ -34,7 +34,7 @@ public class ComplexNumber {
 
     //MODIFIES: this
     //EFFECTS: adds the current complex numbers together with an other and returns the result as a new complex number
-    public ComplexNumber add(ComplexNumber otherNumber){
+    public ComplexNumber add(ComplexNumber otherNumber) {
         double resultReal;
         double resultImaginary;
         resultReal = real + otherNumber.real;
@@ -49,12 +49,17 @@ public class ComplexNumber {
     //everything else is the same as a regular equals 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
         ComplexNumber that = (ComplexNumber) obj;
 
-    return Math.abs(this.real - that.real) < 1e-10 && Math.abs(this.imaginary - that.imaginary) < 1e-10;
-}
+        return Math.abs(this.real - that.real) < 1e-10 && Math.abs(this.imaginary - that.imaginary) < 1e-10;
+    }
 
 
 }

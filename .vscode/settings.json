@@ -8,5 +8,6 @@
         "lib/**/*.jar"
     ],
     "java.checkstyle.configuration": "${workspaceFolder}/checkstyle.xml",
-    "java.checkstyle.version": "10.2"
+    "java.checkstyle.version": "10.2",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable"
 }
