@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.Random;
+import java.awt.*;
+
 
 public class TestQubit {
     private Qubit testQubit;
@@ -51,6 +53,7 @@ public class TestQubit {
         assertEquals(beta1, testQubit1.getBeta());
         assertEquals(alpha, testQubit0.getAlpha());
         assertEquals(beta, testQubit0.getBeta());
+        assertEquals(testQubit0.getColor(), new Color(255, 0, 0));
     }
 
     @Test

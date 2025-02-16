@@ -5,7 +5,7 @@ import java.awt.*;
 
 //This class represents the grid that all the Qubit will be displayed on, 
 public class QuantumCellularAutomaton {
-    private Qubit[][] grid;
+    public Qubit[][] grid;
     private int size;
 
     public QuantumCellularAutomaton(int size) {
@@ -24,6 +24,14 @@ public class QuantumCellularAutomaton {
         });
         
         timer.start();
+    }
+
+    public Qubit[][] getGrid() {
+        return grid;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     //MODIFIES: this, Qubit

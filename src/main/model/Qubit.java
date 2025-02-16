@@ -2,6 +2,9 @@ package model;
 
 import java.util.Random;
 
+import javax.swing.*;
+import java.awt.*;
+
  // This class should contain the properties of a Qubit as well 
  //as the methods that simulate classical and quantum gate operations
  
@@ -12,12 +15,14 @@ public class Qubit {
     //probability of a qubit being in a certain state before measurement.
 
     private ComplexNumber alpha; // this is the probability amplitude of  |0> 
-    private ComplexNumber beta; // this is the probability amplitude of |1> 
+    private ComplexNumber beta;
+    private Color color; // this is the probability amplitude of |1> 
 
     //REQUIRES alpha^2 + beta^2 must = 1 to ensure that the state is normalized 
     public Qubit() {
         this.alpha = new ComplexNumber(1, 0);
         this.beta = new ComplexNumber(0, 0);
+        this.color = new Color (255, 0, 0);
     }
 
     public Qubit(ComplexNumber alpha, ComplexNumber beta) {
@@ -43,6 +48,10 @@ public class Qubit {
 
     public ComplexNumber getBeta() {
         return this.beta;
+    }
+
+    public Color getColor() {
+        return this.color;
     }
 
     //MODIFIES: this 
