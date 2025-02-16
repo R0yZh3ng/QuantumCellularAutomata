@@ -60,4 +60,16 @@ public class Qubit {
         }
     }
 
+    //MODIFIES: this
+    //EFFECTS: applies entanglement to the Qubit's neighbour
+    public void entangle(Qubit neighbour) {
+        if (Math.random() < 0.3) {
+            applyGate(Gate.HADAMARD);
+        } else if (Math.random() < 0.6) {
+            applyGate(Gate.BITFLIP);
+        } else {
+            applyGate(Gate.PHASEFLIP);
+        }
+    }
+
 }
