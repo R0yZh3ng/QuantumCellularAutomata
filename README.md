@@ -30,7 +30,7 @@ Given recent events involving the drastic uprise and fall of quantum computing r
 ## User Stories
 
 A *bulleted* list:
-- As a user, I want to be able to determine the size of the grid that the simulation will occur on.
+- As a user, I want to be able to determine the size of the grid that the simulation will occur on/ adding x (qubits)  to y (grid).
 - As a user, I want to be able to determine which interactions goes on so that I can test different interactions
 - As a user, I want to be able to see the grid evolve following quantum gate rules in discrete time
 - As a user, I want to be able to visualize the simulation with gradient color changes
