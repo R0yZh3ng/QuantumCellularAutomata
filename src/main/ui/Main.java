@@ -5,9 +5,13 @@ import model.*;
 import java.util.Scanner;
 
 public class Main {
+    public static int size;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Boolean run = true;
+
+        System.out.println("what size simulation do you want?");
+        size = scanner.nextInt();
 
         Thread simulationThread = new Thread(() -> runSimulation(run));
         simulationThread.start();
@@ -21,7 +25,7 @@ public class Main {
 
 
     public static void runSimulation(Boolean run) {
-        QuantumCellularAutomaton automata = new QuantumCellularAutomaton(10);
+        QuantumCellularAutomaton automata = new QuantumCellularAutomaton(size);
         GridRenderer renderer = new GridRenderer(automata);
 
         while (run) {
