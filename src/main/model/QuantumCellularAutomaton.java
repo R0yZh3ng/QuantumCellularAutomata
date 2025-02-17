@@ -5,7 +5,7 @@ import java.awt.*;
 
 //This class represents the grid that all the Qubit will be displayed on, 
 public class QuantumCellularAutomaton {
-    public Qubit[][] grid;
+    private Qubit[][] grid;
     private int size;
 
     public QuantumCellularAutomaton(int size) {
@@ -19,6 +19,14 @@ public class QuantumCellularAutomaton {
         }
     }
 
+    public Qubit[][] getGrid() {
+        return grid;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
     //MODIFIES: this, Qubit
     //EFFECTS: updates all the Qubits in the grid (apply entaglement on to neighbours)
     public void updateGrid() {
@@ -27,15 +35,15 @@ public class QuantumCellularAutomaton {
                 Qubit current = grid[i][j];
                 
                 if (i > 0) {
-                    current.entangle(grid[i-1][j]);
+                    current.entangle(grid[i - 1][j]);
                 }
                 if (j > 0) {
                     current.entangle(grid[i][j - 1]);
                 }
-                if (i < size -1) {
+                if (i < size - 1) {
                     current.entangle(grid[i + 1][j]);
                 }
-                if (j < size -1) {
+                if (j < size - 1) {
                     current.entangle(grid[i][j + 1]);
                 }
             }
@@ -56,6 +64,17 @@ public class QuantumCellularAutomaton {
                 int blue = (int) (prob1 * 255);
     
                 qubit.setColor(new Color(red, 0, blue)); 
+            }
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECTS: applies gate operation on each of the Qubits in the grid
+    public static void applyGate(QuantumCellularAutomaton automata, Gate gate) {
+        Qubit[][] grid = automata.getGrid();
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                grid[i][j].applyGate(gate);
             }
         }
     }

@@ -105,4 +105,12 @@ public class TestQubit {
 
     }
 
+    @Test
+    void testToAscii() {
+        assertEquals(testQubit.toAscii(), "0");
+        assertEquals(testQubit1.toAscii(), "?");
+        assertEquals(testQubit2.toAscii(), "1");
+        assertEquals(testQubit3.toAscii(), "?");
+    }
+
 }

@@ -22,7 +22,7 @@ public class Qubit {
     public Qubit() {
         this.alpha = new ComplexNumber(1, 0);
         this.beta = new ComplexNumber(0, 0);
-        this.color = new Color (255, 0, 0);
+        this.color = new Color(255, 0, 0);
     }
 
     public Qubit(ComplexNumber alpha, ComplexNumber beta) {
@@ -54,7 +54,7 @@ public class Qubit {
         return this.color;
     }
 
-    public void setColor(Color color){
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -82,6 +82,18 @@ public class Qubit {
             applyGate(Gate.BITFLIP);
         } else {
             applyGate(Gate.PHASEFLIP);
+        }
+    }
+
+    //EFFECTS: returns a string as ASCII for the console ui to print out
+    public String toAscii() {
+        double probZero = alpha.magnitudeSquared();
+        if (probZero > 0.7) {
+            return "0"; 
+        } else if (probZero < 0.3) {
+            return "1"; 
+        } else {
+            return "?"; 
         }
     }
 
