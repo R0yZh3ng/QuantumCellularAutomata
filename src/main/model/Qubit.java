@@ -12,7 +12,7 @@ import java.awt.*;
  // This class should contain the properties of a Qubit as well 
  //as the methods that simulate classical and quantum gate operations
  
-public class Qubit implements Writable{
+public class Qubit implements Serializer{
    
 
     //probability amplitude is a complex number that determines the 
@@ -105,9 +105,9 @@ public class Qubit implements Writable{
     //EFFECTS: serializing the object to JSON
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("alpha", alpha);
-        json.put("beta", beta);
-        json.put("color", color);
+        json.put("alpha", getAlpha());
+        json.put("beta", getBeta());
+        json.put("color", getColor());
         return json;
     }
 

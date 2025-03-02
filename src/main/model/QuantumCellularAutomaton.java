@@ -2,15 +2,21 @@ package model;
 
 import javax.swing.*;
 import java.awt.*;
+import org.json.JSONObject;
+import persistence.*;
+import org.json.JSONArray;
+
 
 //This class represents the grid that all the Qubit will be displayed on, 
-public class QuantumCellularAutomaton {
+public class QuantumCellularAutomaton implements Serializer {
     private Qubit[][] grid;
     private int size;
+    private String name;
 
     public QuantumCellularAutomaton(int size) {
         this.size = size;
         this.grid = new Qubit[size][size];
+        this.name = "";
 
         for (int i = 0; i < size; i++) { 
             for (int j = 0; j < size; j++) { 
@@ -25,6 +31,14 @@ public class QuantumCellularAutomaton {
 
     public int getSize() {
         return size;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     //MODIFIES: this, Qubit
@@ -77,6 +91,33 @@ public class QuantumCellularAutomaton {
                 grid[i][j].applyGate(gate);
             }
         }
+    }
+
+    @Override
+
+    //EFFECTS: serialize for the QCA class
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", getName());
+        json.put("size", getSize());
+        json.put("Automata", gridArrayToJson());
+        return json;
+    }
+
+    //EFFECTS: turns the 2d array into json
+    private JSONArray gridArrayToJson() {
+
+        JSONArray gridArray = new JSONArray();
+
+        for (int i = 0; i < grid.length; i++) {
+            JSONArray rowArray = new JSONArray();
+
+            for (int j = 0; j < grid[i].length; j++) {
+                rowArray.put(grid[i][j].toJson());
+            }
+            gridArray.put(rowArray);
+        }
+        return gridArray;
     }
     
 }
