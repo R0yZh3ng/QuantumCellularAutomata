@@ -106,12 +106,25 @@ public class Qubit implements Serializer{
     //EFFECTS: serializing the object to JSON
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("alpha", getAlpha());
-        json.put("beta", getBeta());
+        json.put("alpha", getAlpha().toJson());
+        json.put("beta", getBeta().toJson());
         json.put("red", getColor().getRed());
         json.put("blue", getColor().getBlue());
         json.put("green", getColor().getGreen());
         return json;
+    }
+
+
+    //EFFECTS: converts JSON back into Qubit
+    public static Qubit fromJson(JSONObject jsonObject) {
+        ComplexNumber alpha = ComplexNumber.fromJson(jsonObject.getJSONObject("alpha"));
+        ComplexNumber beta = ComplexNumber.fromJson(jsonObject.getJSONObject("beta"));
+        Color color = new Color(
+            jsonObject.getInt("red"),
+            jsonObject.getInt("green"),
+            jsonObject.getInt("blue")
+        );
+        return new Qubit(alpha, beta, color);
     }
 
 }

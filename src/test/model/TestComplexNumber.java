@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.awt.*;
 
 public class TestComplexNumber {
     private double alpha1;
@@ -20,7 +21,9 @@ public class TestComplexNumber {
     private ComplexNumber cnum3;
     private ComplexNumber cnum4;
 
+    private Color color;
     private Qubit qubit;
+
 
     
     @BeforeEach
@@ -37,15 +40,16 @@ public class TestComplexNumber {
         beta3 = 0;
         cnum3 = new ComplexNumber(alpha3, beta3);
 
-        cnum4 = new ComplexNumber(alpha1, beta1); //this is set to the same as cnum1 to test the equals override
-        qubit = new Qubit(cnum1, cnum2);// another class to test the override equals
+        cnum4 = new ComplexNumber(alpha1, beta1);
+        color = new Color(255, 0 , 0); //this is set to the same as cnum1 to test the equals override
+        qubit = new Qubit(cnum1, cnum2, color);// another class to test the override equals
     }
 
 
     @Test
     void testComplexNumberConstructor() {
-        assertEquals(cnum1.real, 0.0);
-        assertEquals(cnum1.imaginary, 1.0);
+        assertEquals(cnum1.getReal(), 0.0);
+        assertEquals(cnum1.getImaginary(), 1.0);
     }
     
     @Test

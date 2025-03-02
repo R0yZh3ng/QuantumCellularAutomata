@@ -28,7 +28,8 @@ public class TestQuanumCellularAutomaton {
         for (int i = 0; i < size; i++) { 
             for (int j = 0; j < size; j++) { 
                 sampleGrid2[i][j] = new Qubit(new ComplexNumber(1 / Math.sqrt(2), 0),
-                                             new ComplexNumber(1 / Math.sqrt(2), 0)); 
+                                             new ComplexNumber(1 / Math.sqrt(2), 0),
+                                             new Color(255, 0, 0)); 
             }
         }
 

@@ -16,7 +16,7 @@ public class QuantumCellularAutomaton implements Serializer {
     public QuantumCellularAutomaton(int size) {
         this.size = size;
         this.grid = new Qubit[size][size];
-        this.name = "";
+        this.name = "your simulation";
 
         for (int i = 0; i < size; i++) { 
             for (int j = 0; j < size; j++) { 

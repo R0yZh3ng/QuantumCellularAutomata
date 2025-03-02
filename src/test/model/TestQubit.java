@@ -23,6 +23,7 @@ public class TestQubit {
     private ComplexNumber beta2;
     private ComplexNumber beta3;
     private Random randomDouble;
+    private Color color;
 
     @BeforeEach
     void runBefore() {
@@ -40,11 +41,13 @@ public class TestQubit {
         alpha3 = new ComplexNumber(1 / Math.sqrt(2), 0);
         beta3 = new ComplexNumber(0, 1 / Math.sqrt(2));    
 
+        color = new Color(255, 0, 0);
+
         testQubit0 = new Qubit();
-        testQubit = new Qubit(alpha, beta);
-        testQubit1 = new Qubit(alpha1, beta1);
-        testQubit2 = new Qubit(alpha2, beta2);
-        testQubit3 = new Qubit(alpha3, beta3);
+        testQubit = new Qubit(alpha, beta, color);
+        testQubit1 = new Qubit(alpha1, beta1, color);
+        testQubit2 = new Qubit(alpha2, beta2, color);
+        testQubit3 = new Qubit(alpha3, beta3, color);
     }
 
     @Test 
