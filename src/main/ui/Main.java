@@ -5,7 +5,8 @@ import model.*;
 import java.util.Scanner;
 
 public class Main {
-    public static int size;
+    private static int size;
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Boolean run = true;
@@ -32,7 +33,7 @@ public class Main {
             automata.updateGrid();
             renderer.printGrid();
             try {
-                Thread.sleep(100);    // Adjust speed of simulation
+                Thread.sleep(10000);    // Adjust speed of simulation
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

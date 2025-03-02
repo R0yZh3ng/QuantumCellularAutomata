@@ -34,4 +34,6 @@ A *bulleted* list:
 - As a user, I want to be able to determine which interactions goes on so that I can test different interactions
 - As a user, I want to be able to see the grid evolve following quantum gate rules in discrete time
 - As a user, I want to be able to visualize the simulation with gradient color changes
+- As a user, I want to be able to save the grid and all qubit states in the grid when I am exiting the simulation
+- As a user, I want to be able to load data from a previous simulation and continue the simulation from there.
 
