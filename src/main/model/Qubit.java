@@ -3,12 +3,16 @@ package model;
 import java.util.Random;
 
 import javax.swing.*;
+
+import persistence.*;
+import org.json.JSONObject;
+
 import java.awt.*;
 
  // This class should contain the properties of a Qubit as well 
  //as the methods that simulate classical and quantum gate operations
  
-public class Qubit {
+public class Qubit implements Writable{
    
 
     //probability amplitude is a complex number that determines the 
@@ -95,6 +99,16 @@ public class Qubit {
         } else {
             return "?"; 
         }
+    }
+
+    @Override
+    //EFFECTS: serializing the object to JSON
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("alpha", alpha);
+        json.put("beta", beta);
+        json.put("color", color);
+        return json;
     }
 
 }
