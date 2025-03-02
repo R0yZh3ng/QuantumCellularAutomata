@@ -3,9 +3,12 @@ package model;
 //this class contains the definition and operation of ComplexNumbers that will be used in the Qubit class to 
 // perform calculations
 
-public class ComplexNumber {
-    double real;
-    double imaginary;
+import persistence.*;
+import org.json.*;
+
+public class ComplexNumber implements Serializer{
+    private double real;
+    private double imaginary;
 
     public ComplexNumber(double real, double imaginary) {
         this.real = real;
@@ -13,6 +16,13 @@ public class ComplexNumber {
 
     }
 
+    public double getReal() {
+        return real;
+    }
+
+    public double getImaginary() {
+        return imaginary;
+    }
     //EFFECT: calculates alpha^2 + beta^2 = |z|^2 in probability calculations
     public double magnitudeSquared() {
         return (real * real) + (imaginary * imaginary);
@@ -59,6 +69,15 @@ public class ComplexNumber {
         ComplexNumber that = (ComplexNumber) obj;
 
         return Math.abs(this.real - that.real) < 1e-10 && Math.abs(this.imaginary - that.imaginary) < 1e-10;
+    }
+    
+    @Override
+    //EFFECTS
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("real", getReal());
+        json.put("imaginary", getImaginary());
+        return json;
     }
 
 
