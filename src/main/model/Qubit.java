@@ -29,9 +29,10 @@ public class Qubit implements Serializer{
         this.color = new Color(255, 0, 0);
     }
 
-    public Qubit(ComplexNumber alpha, ComplexNumber beta) {
+    public Qubit(ComplexNumber alpha, ComplexNumber beta, Color color) {
         this.alpha = alpha;
         this.beta = beta;
+        this.color = color;
     }
 
     //MODIFIES: this
@@ -107,7 +108,9 @@ public class Qubit implements Serializer{
         JSONObject json = new JSONObject();
         json.put("alpha", getAlpha());
         json.put("beta", getBeta());
-        json.put("color", getColor());
+        json.put("red", getColor().getRed());
+        json.put("blue", getColor().getBlue());
+        json.put("green", getColor().getGreen());
         return json;
     }
 

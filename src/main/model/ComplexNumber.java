@@ -80,5 +80,12 @@ public class ComplexNumber implements Serializer{
         return json;
     }
 
+    //EFFECTS: converts JSON back into ComplexNumber
+    public static ComplexNumber fromJson(JSONObject jsonObject) {
+        double real = jsonObject.getDouble("real");
+        double imaginary = jsonObject.getDouble("imaginary");
+        return new ComplexNumber(real, imaginary);
+    }
+
 
 }
