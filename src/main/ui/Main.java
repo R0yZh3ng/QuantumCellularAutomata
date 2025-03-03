@@ -59,6 +59,7 @@ public class Main {
 
         while (run) {
             automata.updateGrid();
+            automata.paintGrid();
             renderer.printGrid();
             try {
                 Thread.sleep(5000);    // Adjust speed of simulation

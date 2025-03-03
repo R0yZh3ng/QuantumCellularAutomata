@@ -66,7 +66,7 @@ public class JsonReader {
     private Qubit parseQubit(JSONObject jsonObject) {
         ComplexNumber alpha = ComplexNumber.fromJson(jsonObject.getJSONObject("alpha"));
         ComplexNumber beta = ComplexNumber.fromJson(jsonObject.getJSONObject("beta"));
-        Color color = new Color(jsonObject.getInt("red"), jsonObject.getInt("blue"), jsonObject.getInt("green"));
+        Color color = new Color(jsonObject.getInt("red"), jsonObject.getInt("green"), jsonObject.getInt("blue"));
         Qubit qubit = new Qubit(alpha, beta, color);
         return qubit;
     }

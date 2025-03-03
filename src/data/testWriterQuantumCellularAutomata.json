@@ -1,0 +1,62 @@
+{
+    "size": 2,
+    "Automata": [
+        [
+            {
+                "red": 255,
+                "green": 0,
+                "blue": 0,
+                "alpha": {
+                    "imaginary": 0,
+                    "real": 1
+                },
+                "beta": {
+                    "imaginary": 0,
+                    "real": 0
+                }
+            },
+            {
+                "red": 127,
+                "green": 0,
+                "blue": 127,
+                "alpha": {
+                    "imaginary": 0,
+                    "real": 0.7071067811865475
+                },
+                "beta": {
+                    "imaginary": 0,
+                    "real": -0.7071067811865475
+                }
+            }
+        ],
+        [
+            {
+                "red": 255,
+                "green": 0,
+                "blue": 0,
+                "alpha": {
+                    "imaginary": 0,
+                    "real": 1
+                },
+                "beta": {
+                    "imaginary": 0,
+                    "real": 0
+                }
+            },
+            {
+                "red": 254,
+                "green": 0,
+                "blue": 0,
+                "alpha": {
+                    "imaginary": 0,
+                    "real": 0.9999999999999998
+                },
+                "beta": {
+                    "imaginary": 0,
+                    "real": 0
+                }
+            }
+        ]
+    ],
+    "name": "your simulation"
+}
