@@ -12,7 +12,7 @@ import java.awt.*;
  // This class should contain the properties of a Qubit as well 
  //as the methods that simulate classical and quantum gate operations
  
-public class Qubit implements Serializer{
+public class Qubit implements Serializer {
    
 
     //probability amplitude is a complex number that determines the 
@@ -112,19 +112,6 @@ public class Qubit implements Serializer{
         json.put("blue", getColor().getBlue());
         json.put("green", getColor().getGreen());
         return json;
-    }
-
-
-    //EFFECTS: converts JSON back into Qubit
-    public static Qubit fromJson(JSONObject jsonObject) {
-        ComplexNumber alpha = ComplexNumber.fromJson(jsonObject.getJSONObject("alpha"));
-        ComplexNumber beta = ComplexNumber.fromJson(jsonObject.getJSONObject("beta"));
-        Color color = new Color(
-            jsonObject.getInt("red"),
-            jsonObject.getInt("green"),
-            jsonObject.getInt("blue")
-        );
-        return new Qubit(alpha, beta, color);
     }
 
 }

@@ -4,11 +4,8 @@ package model;
 // that will be operated with the Qubits) in a 2 x 2 format.
 // this will also provide a method that multiplies the constant matrix by the current state of the Qubit
 
-import persistence.*;
-import org.json.*;
 
-
-public class Gate implements Serializer{
+public class Gate {
     private ComplexNumber[][] data;
 
     //REQUIRES: the Gate that is provided must be 2 x 2, meaning that there must be two basis vectors each of size 2;
@@ -40,25 +37,4 @@ public class Gate implements Serializer{
         {new ComplexNumber(1, 0), new ComplexNumber(0, 0)},
         {new ComplexNumber(0, 0), new ComplexNumber(-1, 0)}
     });
-
-    @Override
-    //EFFECTS: serializes the gates (although not really neccesary)
-
-    public JSONObject toJson() {
-        JSONObject json = new JSONObject();
-        json.put("data", matrixToJson());
-        return json;
-    }
-
-    private JSONArray matrixToJson() {
-        JSONArray gridArray = new JSONArray();
-        for (int i = 0; i < data.length; i++) {
-            JSONArray rowArray = new JSONArray();
-            for (int j = 0; j < data[i].length; j++) {
-                rowArray.put(data[i][j].toJson());
-            }
-            gridArray.put(rowArray);
-        }
-        return gridArray;
-    }
 }

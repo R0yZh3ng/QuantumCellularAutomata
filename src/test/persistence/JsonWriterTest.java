@@ -44,6 +44,7 @@ class JsonWriterTest extends JsonTest {
         }
     }
 
+
     @Test
     void testWriterSpecificAutomaton() {
         try {
@@ -52,11 +53,18 @@ class JsonWriterTest extends JsonTest {
 
             // Set up the grid to match your JSON data
             Qubit[][] grid = qca.getGrid();
-            grid[0][0] = new Qubit(new ComplexNumber(1.0, 0.0), new ComplexNumber(0.0, 0.0), new Color(255, 0, 0));
-            grid[0][1] = new Qubit(new ComplexNumber(0.7071067811865475, 0.0), new ComplexNumber(-0.7071067811865475, 0.0), 
+            grid[0][0] = new Qubit(new ComplexNumber(1.0, 0.0), 
+                                   new ComplexNumber(0.0, 0.0), 
+                                   new Color(255, 0, 0));
+            grid[0][1] = new Qubit(new ComplexNumber(0.7071067811865475, 0.0), 
+                                   new ComplexNumber(-0.7071067811865475, 0.0), 
                                    new Color(127, 0, 127));
-            grid[1][0] = new Qubit(new ComplexNumber(1.0, 0.0), new ComplexNumber(0.0, 0.0), new Color(255, 0, 0));
-            grid[1][1] = new Qubit(new ComplexNumber(0.9999999999999998, 0.0), new ComplexNumber(0.0, 0.0), new Color(254, 0, 0));
+            grid[1][0] = new Qubit(new ComplexNumber(1.0, 0.0), 
+                                   new ComplexNumber(0.0, 0.0), 
+                                   new Color(255, 0, 0));
+            grid[1][1] = new Qubit(new ComplexNumber(0.9999999999999998, 0.0), 
+                                   new ComplexNumber(0.0, 0.0), 
+                                   new Color(254, 0, 0));
 
             JsonWriter writer = new JsonWriter("src/data/testWriterQuantumCellularAutomata.json");
             writer.open();

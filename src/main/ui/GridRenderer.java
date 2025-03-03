@@ -6,10 +6,13 @@ import model.Qubit;
 public class GridRenderer {
     private QuantumCellularAutomaton automata;
 
+    //EFFECTS: initilizes the automata that is going to run in the simulation
     public GridRenderer(QuantumCellularAutomaton automata) {
         this.automata = automata;
     }
 
+
+    //EFFECTS: prints out the grid in terms of its 1, ? or 0 value given the probability state of the qubit
     public void printGrid() {
         Qubit[][] grid = automata.getGrid();
         int size = automata.getSize();
@@ -27,6 +30,7 @@ public class GridRenderer {
         System.out.println(sb);
     }
 
+    //EFFECTS: prints out the grid but with the assigned color values based on probability
     public void printGridColor() {
         Qubit[][] grid = automata.getGrid();
         int size = automata.getSize();

@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import org.json.*;
 import java.awt.*;
 
-// Represents a reader that reads workroom from JSON data stored in file
+// Represents a reader that reads QuantumCellularAutomaton from JSON data stored in file
 public class JsonReader {
     private String source;
 
@@ -48,7 +48,7 @@ public class JsonReader {
     }
 
     // MODIFIES: qca
-    // EFFECTS: parses thingies from JSON object and adds them to Automaton
+    // EFFECTS: parses qubits from JSON object and adds them to Automaton
     private void addQubits(QuantumCellularAutomaton qca, JSONObject jsonObject) {
         JSONArray gridArray = jsonObject.getJSONArray("Automata");
         for (int i = 0; i < gridArray.length(); i++) {

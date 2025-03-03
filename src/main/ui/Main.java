@@ -15,6 +15,7 @@ public class Main {
     private static JsonWriter jsonWriter;
     private static final String JSON_STORE = "src/data/quantumcellularautomaton.json";
     
+    //EFFECTS: runs the app, initializes the simulation and all the options
     public static void main(String[] args) {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
@@ -26,7 +27,7 @@ public class Main {
         System.out.println("B. load previous simulation");
         String option = scanner.nextLine();
 
-        if(option.equalsIgnoreCase("b")) {
+        if (option.equalsIgnoreCase("b")) {
             loadQuantumCellularAutomaton();
             Thread simulationThread = new Thread(() -> runSimulation(run, true));
             simulationThread.start();
@@ -50,9 +51,9 @@ public class Main {
         }
     }
 
-
+    //EFFECTS: runs the simulation, either loads or starts off with a new simulation
     public static void runSimulation(Boolean run, Boolean loaded) {
-        if(!loaded){
+        if (!loaded) {
             automata = new QuantumCellularAutomaton(size);
         }
         renderer = new GridRenderer(automata);
@@ -69,7 +70,7 @@ public class Main {
         }
     }
 
-
+//    EFFECTS: runs the simulation but displays the colors instead of the 0,1,?
 //    public static void runSimulationColor(Boolean run) {
 //      QuantumCellularAutomaton automata = new QuantumCellularAutomaton(10);
 //       GridRenderer renderer = new GridRenderer(automata);
@@ -84,9 +85,11 @@ public class Main {
 //        }
 //    }
 
+    //EFFECTS: takes in the user input and performs a action of apply gates, exiting or saving the automata.
+    @SuppressWarnings("methodlength")
     public static void handleUserInput(Scanner scanner) {
-        QuantumCellularAutomaton automata = new QuantumCellularAutomaton(10);
 
+        QuantumCellularAutomaton automata = new QuantumCellularAutomaton(10);
         while (true) {
             String command = scanner.nextLine().trim().toLowerCase();
             if (command.equals("apply hadamard")) {
@@ -102,21 +105,21 @@ public class Main {
                 Scanner save = new Scanner(System.in);
                 System.out.println("Exiting simulation...");
                 System.out.println("Would you like to save the current Automaton? (Y/N)");
-                
                 String saved = save.nextLine();
+                save.close();
 
-                if(saved.equalsIgnoreCase("Y")) {
-                    saveQuantumCellularAutomata();
+                if (saved.equalsIgnoreCase("Y")) {
+                    saveQuantumCellularAutomata(); 
+                    break;
                 } else {
                     System.out.println("Have a good day!");
+                    break;
                 }
-
-                break;
             }
         }
     }
 
-
+    //EFFECTS: Applies the specific gate given to the current automata (this should be moved to the QCA class soon)
     public static void applyGate(QuantumCellularAutomaton automata, Gate gate) {
         Qubit[][] grid = automata.getGrid();
         for (int i = 0; i < grid.length; i++) {
@@ -126,11 +129,12 @@ public class Main {
         }
     }
 
+    //EFFECTS: loads the simulation from the last save
     private static void loadQuantumCellularAutomaton() {
         try {
             automata = jsonReader.read();
             System.out.println("Loaded " + automata.getName() + "from " + JSON_STORE);
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("umable to read from files: " + JSON_STORE);
         }
     }

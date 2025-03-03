@@ -1,16 +1,17 @@
 package persistence;
 
 import model.*;
-import org.junit.jupiter.api.Test;
 
 import java.awt.Color;
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 // Assuming JsonTest is a parent class with utility methods
 public class JsonTest {
-    protected void checkQubit(ComplexNumber expectedAlpha, ComplexNumber expectedBeta, Color expectedColor, Qubit qubit) {
+    protected void checkQubit(ComplexNumber expectedAlpha, 
+                              ComplexNumber expectedBeta,
+                              Color expectedColor, 
+                              Qubit qubit) {
         assertEquals(expectedAlpha.getReal(), qubit.getAlpha().getReal());
         assertEquals(expectedAlpha.getImaginary(), qubit.getAlpha().getImaginary());
         assertEquals(expectedBeta.getReal(), qubit.getBeta().getReal());

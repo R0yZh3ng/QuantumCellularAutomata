@@ -41,7 +41,7 @@ public class TestComplexNumber {
         cnum3 = new ComplexNumber(alpha3, beta3);
 
         cnum4 = new ComplexNumber(alpha1, beta1);
-        color = new Color(255, 0 , 0); //this is set to the same as cnum1 to test the equals override
+        color = new Color(255, 0, 0); //this is set to the same as cnum1 to test the equals override
         qubit = new Qubit(cnum1, cnum2, color);// another class to test the override equals
     }
 

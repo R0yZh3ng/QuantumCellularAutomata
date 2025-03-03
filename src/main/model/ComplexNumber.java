@@ -6,7 +6,7 @@ package model;
 import persistence.*;
 import org.json.*;
 
-public class ComplexNumber implements Serializer{
+public class ComplexNumber implements Serializer {
     private double real;
     private double imaginary;
 
@@ -23,8 +23,9 @@ public class ComplexNumber implements Serializer{
     public double getImaginary() {
         return imaginary;
     }
+
     //EFFECT: calculates alpha^2 + beta^2 = |z|^2 in probability calculations
-    public double magnitudeSquared() {
+    public double magnitudeSquared()  {
         return (real * real) + (imaginary * imaginary);
 
     }
