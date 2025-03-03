@@ -36,4 +36,7 @@ A *bulleted* list:
 - As a user, I want to be able to visualize the simulation with gradient color changes
 - As a user, I want to be able to save the grid and all qubit states in the grid when I am exiting the simulation
 - As a user, I want to be able to load data from a previous simulation and continue the simulation from there.
+- As a user, I want to be able to view the program run with a graphical interface with real time color changes
+- As a user, I want to be able to select options from a menu using my mouse rather then having to type
+- As a user, I want to be able to pasue and start the simulation again
 
